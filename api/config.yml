@@ -1,3 +1,4 @@
-region: us-west-2
+profile: default # default profile
+region: us-west-2 # default region
 facebook_app_id: "not_configured" # see docs/social_logins.md
 google_app_id: "not_configured" # see docs/social_logins.md

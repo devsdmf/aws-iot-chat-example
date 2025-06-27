@@ -1,5 +1,8 @@
 service: iot-chat-api
 
+build:
+  esbuild: false
+
 plugins:
   - serverless-webpack
   - serverless-hooks-plugin
@@ -16,8 +19,8 @@ custom:
 
 provider:
   name: aws
-  profile: default
-  runtime: nodejs14.x
+  profile: ${opt:aws-profile, self:custom.variables.profile}
+  runtime: nodejs22.x
   stage: prod
   region: ${opt:region, self:custom.variables.region}
 
