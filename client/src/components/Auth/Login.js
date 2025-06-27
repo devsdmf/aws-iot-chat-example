@@ -40,7 +40,7 @@ export class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.validateUserSession();
   }
 

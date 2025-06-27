@@ -27,7 +27,7 @@ import { loggedInStatusChanged } from '../../actions/authActions';
  * Router component in charge of navigation when not signed in
  */
 export class RootRouter extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.validateUserSession();
   }
 

@@ -43,17 +43,14 @@ export class App extends Component {
     this.signOut = this.signOut.bind(this);
   }
 
-  componentWillMount() {
-    this.validateUserSession();
-  }
-
   componentDidMount() {
+    this.validateUserSession();
     const connectCallback = () => this.props.deviceConnectedStatusChanged(true);
     const closeCallback = () => this.props.deviceConnectedStatusChanged(false);
     this.props.acquirePublicPolicies(connectCallback, closeCallback);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const {
       connectPolicy,
       publicPublishPolicy,
@@ -61,13 +58,20 @@ export class App extends Component {
       publicReceivePolicy,
       deviceConnected,
       identityId,
-    } = nextProps;
+    } = this.props;
+
+    const prevConnectPolicy = prevProps.connectPolicy;
+    const prevPublicPublishPolicy = prevProps.publicPublishPolicy;
+    const prevPublicSubscribePolicy = prevProps.publicSubscribePolicy;
+    const prevPublicReceivePolicy = prevProps.publicReceivePolicy;
+    const prevDeviceConnected = prevProps.deviceConnected;
 
     if (connectPolicy &&
       publicPublishPolicy &&
       publicSubscribePolicy &&
       publicReceivePolicy &&
-      deviceConnected) {
+      deviceConnected &&
+      (!prevConnectPolicy || !prevPublicPublishPolicy || !prevPublicSubscribePolicy || !prevPublicReceivePolicy || !prevDeviceConnected)) {
       // Ping to test connection
       const topic = `room/public/ping/${identityId}`;
       IoT.publish(topic, JSON.stringify({ message: 'connected' }));
