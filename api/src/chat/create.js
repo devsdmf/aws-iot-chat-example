@@ -11,8 +11,8 @@
   specific language governing permissions and limitations under the License.
 */
 
-import * as dynamodb from '../helpers/dynamodb';
-import { success, failure, badRequest } from '../helpers/response';
+import * as dynamodb from '../helpers/dynamodb.js';
+import { success, failure, badRequest } from '../helpers/response.js';
 
 export const INVALID_ROOM_TYPE = 'Room type must be "private" or "public"';
 export const INVALID_PUBLIC_ROOM = 'Public room name must obey /^room/public/[a-zA-Z-1-9]+/';

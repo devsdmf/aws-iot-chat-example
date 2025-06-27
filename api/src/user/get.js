@@ -11,8 +11,8 @@
   specific language governing permissions and limitations under the License.
 */
 
-import * as dynamodb from '../helpers/dynamodb';
-import { success, failure, notFound } from '../helpers/response';
+import * as dynamodb from '../helpers/dynamodb.js';
+import { success, failure, notFound } from '../helpers/response.js';
 
 export const USER_NOT_FOUND = 'User not found.';
 

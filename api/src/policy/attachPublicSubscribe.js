@@ -11,8 +11,8 @@
   specific language governing permissions and limitations under the License.
 */
 
-import * as iot from '../helpers/aws-iot';
-import { success, failure } from '../helpers/response';
+import * as iot from '../helpers/aws-iot.js';
+import { success, failure } from '../helpers/response.js';
 
 export const POLICY_NAME = 'IotChatPublicSubscribePolicy';
 

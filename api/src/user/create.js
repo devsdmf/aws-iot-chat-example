@@ -11,8 +11,8 @@
   specific language governing permissions and limitations under the License.
 */
 
-import * as dynamodb from '../helpers/dynamodb';
-import { success, failure } from '../helpers/response';
+import * as dynamodb from '../helpers/dynamodb.js';
+import { success, failure } from '../helpers/response.js';
 
 export const main = async (event, context, callback) => {
   const data = JSON.parse(event.body);
